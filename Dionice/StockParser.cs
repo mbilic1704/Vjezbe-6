@@ -13,10 +13,10 @@ namespace Dionice
             string[] razdijeli = item.Split(';');
             string name = razdijeli[0];
 
-            razdijeli[1].Replace(",", ".");
+            razdijeli[1] = razdijeli[1].Replace(",", ".");
             double currentPrice = double.Parse(razdijeli[1]);
             
-            razdijeli[2].Replace(",",".");
+            razdijeli[2] = razdijeli[2].Replace(",",".");
             double previousPrice = double.Parse(razdijeli[2]);
             
 

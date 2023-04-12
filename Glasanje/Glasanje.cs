@@ -12,8 +12,7 @@ namespace Glasanje
         PopisBiraca popis = new PopisBiraca();
         public string Opcija;
         public bool MozeGlasati(string oib)
-        {
-
+        { 
             if(popis.PostojiBirac(oib) == true && NijeGlasao(oib) == true)
             {
                 return true;
@@ -35,27 +34,17 @@ namespace Glasanje
 
         public void Glasaj(string oib, string opcija)
         {
-            int za = 0;
-            int protiv = 0;
-            int suzdrzan = 0;
-
-            if(MozeGlasati(oib)==true)
+           
+            if(MozeGlasati(oib)==false)
             {
-                if(opcija == "ZA")
-                {
-                    za++;
-                }
-                else if(opcija == "PROTIV")
-                {
-                    protiv++;
-                }
-                if(opcija == "SUZDRZAN")
-                {
-                    suzdrzan++;
-                }
+                throw new Exception("Ne mozete glasati.");
+               
             }
 
-            Console.WriteLine($"REZULTATI: \n ZA: {za} \n PROTIV:{protiv} \n SUZDRZAN: {suzdrzan}" );
+            if (opcija == "ZA") Form1.za++;
+            else if(opcija == "PROTIV") Form1.protiv++;
+            if (opcija == "SUZDRZAN") Form1.suzdrzan++;
+           
         }
     }
 }
